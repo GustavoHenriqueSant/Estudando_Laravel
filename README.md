@@ -32,3 +32,6 @@
 
 * Duas características da sintaxe importantes: comnetário em blade são feitos da seguinte forma: {{-- Comentário aqui --}}. E para funcionalidade que o blade n conseguir dar conta, pode-se usar PHP puro, colocando o cód entre @php --code @endphp.
 
+## Adicionando arquivos estáticos à aplicação:
+* O laravel proporciona uma maneira muito prática para trabalhar com arquivos estáticos. Todos esses recursos ficam na pasta Public, e tem acesso direto nas tags que trabalham com arquivos estáticos.
+
