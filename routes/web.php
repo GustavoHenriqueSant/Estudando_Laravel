@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $nome = "Gustavo";
+    $vetor = array(10,20,30,40,50);
+    $nomes = array('Gusta', 'Maria', 'Jose', 'Gabi', 'Paula');
+    return view('welcome', ["nome" => $nome, "vetor" => $vetor, "nomes" => $nomes]);
 });
 
 Route::get('/contatos', function () {
