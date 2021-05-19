@@ -51,3 +51,13 @@
 * Imagino que para fazer isso é usada o método GET de requisição de dados, acho que há alguma maneira de definir esses dados a URL, e com o uso da funcionalidade que as Rotas do Laravel da poder manipular dados expecíficos usando o controller.
 
 ## Controllers:
+* O Controllers são parte fundamental de toda a palicação em Laravel, geralmente condensam a maior parte da lógica. 
+* Tem o papel de enviar e receber respostas do banco de dados. E também de receber e enviar alguma resposta para as views.
+* Os Controller podem ser criados via Artisan, economizando tempo.
+* É comum também redirecionar ou retornar uma view por um Controller. Por exemplo do logoff.
+* O controller é reponsável pela lógica da aplicação, ou seja tudo envolvido com a manipulação dos dados ficam neles. Os códigos colocados nas rotas anteriormente tds ficarão nos controleers.
+* Um Controller pode ser criado com o seguinte comando "php artisan make:controller *controller_name*".
+* Para informamos ao arquivos de rotas que estamos usando um Controller expecíficos, declaramos "use App\Http\Controllers\EventController;".
+* A lógica do controller é feito com funções, cada função é expevificada para uma view. Supomos que para a view Welcome estamos usando a função "index(){}" no controller para a sua lógica, definiremos no arquivo de rotas "Route::get('/', [EventController::class, 'index']);".
+* Tudo funciona como antes, ao definirmos uma rota dizemos para qual view estamos querendo encaminhar, podemos usa-las na marcação HTML. Na lógica (controller) retornamos a view desejada.
+
