@@ -18,17 +18,8 @@ Route::get('/', [EventController::class, 'index']);
 
 Route::get('/events/create', [EventController::class, 'create_Event']);
 
-Route::get('/contatos', function () {
-    return view('contatos');
-});
+Route::get('/contatos', [EventController::class, 'contatos']);
 
-//Definindo o valor default de id como 1.
-Route::get('/produtos/{id?}', function($id = 1){
-    return view('products', ['id' => $id]);
-});
+Route::get('/produtos/{id?}', [EventController::class, 'products']);
 
-Route::get('/produtos_teste', function($id = 1){
-    $busca = request('search');
-
-    return view('produtos', ['busca' => $busca]);
-});
+Route::get('/produtos_teste', [EventController::class, 'search_products']);
