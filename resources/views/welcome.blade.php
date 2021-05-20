@@ -3,32 +3,8 @@
 @section('title', 'Welcome')
 
 @section('content')
-<h1>Título aqui</h1>
 
-@if(22 < 50)
-    <p> A condição é true</p>
-    <p> isso ai cara </p>
-@else
-    <p>Aí não cara</p>
-@endif
-
-@if($nome == 'Gustavo')
-    <p>Olá {{$nome}}</p>
-@endif
-
-@for($i = 0; $i < count($vetor); $i++)
-    <p>{{$vetor[$i]}}</p>
-@endfor
-
-@foreach($nomes as $nome)
-    <p>{{$loop->index}}:{{$nome}}</p>
+@foreach($events as $event)
+    <p> Título do evento: {{$event->title}} -- Descrição do evento: {{$event->description}} </p>
 @endforeach
-
-@php
-    $nome = "Gustavo";
-    echo $nome;
-@endphp
-
-<!-- Comentário HTML -->
-{{-- Este é o comentário do Blade. --}}
 @endsection

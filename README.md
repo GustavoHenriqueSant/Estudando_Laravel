@@ -28,6 +28,34 @@
 
 * Pelo que vi o blade da uma abordagem a marcação HTML de codificação, consegue-se usar o html utilizando códigos blade sempre que é usada no começo de linha o caracter "@", exemplo: @if(10 > 2). Sua sintaxe é mt parecida com o PHP, e consegue-se um dinamismo pelo que parece superior ao que o PHP fornece, graças a outras vantagens que o prórpio Laravel proporciona. Porém, raramente, há funcionalidade que não poderão ser feitas usando Blade.
 
+* Sintaxe de algumas operações:
+    @if(22 < 50)
+    <p> A condição é true</p>
+    <p> isso ai cara </p>
+    @else
+        <p>Aí não cara</p>
+    @endif
+
+    @if($nome == 'Gustavo')
+        <p>Olá {{$nome}}</p>
+    @endif
+
+    @for($i = 0; $i < count($vetor); $i++)
+        <p>{{$vetor[$i]}}</p>
+    @endfor
+
+    @foreach($nomes as $nome)
+        <p>{{$loop->index}}:{{$nome}}</p>
+    @endforeach
+
+    @php
+        $nome = "Gustavo";
+        echo $nome;
+    @endphp
+
+    <!-- Comentário HTML -->
+    {{-- Este é o comentário do Blade. --}}
+
 * Sempre que uma variável é usada em alguma tag HTML, ele deve ser menciona entre {{}}, exemplo: {{$nome}}.
 
 * Duas características da sintaxe importantes: comnetário em blade são feitos da seguinte forma: {{-- Comentário aqui --}}. E para funcionalidade que o blade n conseguir dar conta, pode-se usar PHP puro, colocando o cód entre @php --code @endphp.
@@ -80,3 +108,11 @@
 * Para adicoinar um novo parâmetro a uma tabela deve-se criar uma migration só para isso, pois, usando o comando "php artisan migrate:fresh" ele apaga todas as tabelas e roda todos os migrations novamente. Dado isso, em aplicações com dados já rodando ele não deve-se ser usado.
 * O comando *rollback* pode ser utilazo para voltar um migration. A migration feitas pode ser vistas com o comando "php artisan migrate:status".
 * Para voltar todas as migration podemos usar o *reset*.
+
+## Eloquent:
+* Eloquent é o *ORM* do Laravel. Um *ORM* mapeia um objeto para relacional e vice versa, resolvendo o problema de impedância dos dados.
+* Cada tabela em uma aplicação Laravel tem um Model que é reponsável pela interação entre as requisições ao banco de dados.
+* A convenção de nomenclatura para o Model é o nome da entidade em singular, enquanto a tabela é a entidade no plural: Event e events.
+* Pelo que entendi, há um model para cada tabela como já dito, o model é reponsável por fazer a intereção com o BD, ou seja forncer os dados.
+* Para fazer essa interação é preciso das operações padrão de BD, no nosso saco as operações do MysQl, como "where", "select", "delete", etc. O model usa o Eloquent para ter essas operações.
+* Com isso faz-se um model para uma tabela, e no controller usamos o comando "use" para usar esse model e ter acesso a essas operações vinda pelo Eloquent, e poder usar em nossa página.

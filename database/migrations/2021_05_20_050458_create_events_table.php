@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddParametersToProductTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class AddParametersToProductTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('qty');
+        Schema::create('events', function (Blueprint $table) {
+            $table->id();
+            $table->string("title");
             $table->text('description');
-            $table->string('category', 100);
+            $table->string('city');
+            $table->boolean('private');
+            $table->timestamps();
         });
     }
 
@@ -27,10 +30,6 @@ class AddParametersToProductTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('qty');
-            $table->dropColumn('description');
-            $table->dropColumn('category');
-        });
+        Schema::dropIfExists('events');
     }
 }
