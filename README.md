@@ -61,3 +61,18 @@
 * A lógica do controller é feito com funções, cada função é expevificada para uma view. Supomos que para a view Welcome estamos usando a função "index(){}" no controller para a sua lógica, definiremos no arquivo de rotas "Route::get('/', [EventController::class, 'index']);".
 * Tudo funciona como antes, ao definirmos uma rota dizemos para qual view estamos querendo encaminhar, podemos usa-las na marcação HTML. Na lógica (controller) retornamos a view desejada.
 
+## Conexão do Laravel com Banco de Dados:
+* A conexão do Laravel com o banco de dados é configurada pelo arquivo .env, nele temos informações como o nome do banco de dados, endreço, nome de usuário, senhta, etc. Não entendi ainda como o arquivo .env ajuda, a n ser na segurança.
+* O Laravel utiliza  o *ORM* (Object-Relational Mapping) chamado *Eloquent*. Veremos mais detalhes futuramente.
+* E para a ciração e remoção de tabelas, criação e remoção de parâmetros, usa-se as *migrations*. Veremos mais detalhes futuramente.
+* Não entendi muito dessa aula, muita coisa rasa, se quiser entender isso terá q ir para a documentação.
+* Após expecificar qual banco de dados irá trabalhar no .env, tabelas default serão criadas ao executar o comando "php artisan migrate".
+
+## Introdução a Migrations:
+* As migrations são como ferramentas de versionamento para banco de dados. Ou seja podemos retroceder operações feitas no banco de dados, tanto como adição ou remoção de dados, criação de tabelas, adição ou remoção de parâmetros, etc.
+* Não são isso, mas tbm podemos manipular nosso banco de dados, como zera-lo por exemplo.
+* Podemos verificar as migrations com o comando "php artisan migrate:status".
+* Pelo que entendi as migrations são classes que herdam a classe Migrate. É uma criado uma classe migrate para cada tabela desejada no banco de dados. Essa classe Migrate possui uma lógica para criar a tabela, com seus campos, e também de apaga-la.
+* Atualmente não consigo imaginar como isso é feito, se ficar curioso procure depois.
+* Alguns comandos básico do migration são: "php artisan migrate" - cria na primeira vez as tabelas iniciais com todos os seus migrates, "php artisan migrate:fresh" - para atualizar suas tabelas caso tenha criado uma nova migrate ou atualizou uma delas, "php artisan migrate:status" - para saber o que foi executado das migration.
+
