@@ -76,3 +76,7 @@
 * Atualmente não consigo imaginar como isso é feito, se ficar curioso procure depois.
 * Alguns comandos básico do migration são: "php artisan migrate" - cria na primeira vez as tabelas iniciais com todos os seus migrates, "php artisan migrate:fresh" - para atualizar suas tabelas caso tenha criado uma nova migrate ou atualizou uma delas, "php artisan migrate:status" - para saber o que foi executado das migration.
 
+## Aprofundando em Migrations:
+* Para adicoinar um novo parâmetro a uma tabela deve-se criar uma migration só para isso, pois, usando o comando "php artisan migrate:fresh" ele apaga todas as tabelas e roda todos os migrations novamente. Dado isso, em aplicações com dados já rodando ele não deve-se ser usado.
+* O comando *rollback* pode ser utilazo para voltar um migration. A migration feitas pode ser vistas com o comando "php artisan migrate:status".
+* Para voltar todas as migration podemos usar o *reset*.
