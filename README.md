@@ -115,4 +115,9 @@
 * A convenção de nomenclatura para o Model é o nome da entidade em singular, enquanto a tabela é a entidade no plural: Event e events.
 * Pelo que entendi, há um model para cada tabela como já dito, o model é reponsável por fazer a intereção com o BD, ou seja forncer os dados.
 * Para fazer essa interação é preciso das operações padrão de BD, no nosso saco as operações do MysQl, como "where", "select", "delete", etc. O model usa o Eloquent para ter essas operações.
-* Com isso faz-se um model para uma tabela, e no controller usamos o comando "use" para usar esse model e ter acesso a essas operações vinda pelo Eloquent, e poder usar em nossa página.
+* Com isso faz-se um model para uma tabela, e no controller usamos o comando "use" para usar esse model e ter acesso a essas operações vinda pelo Eloquent, podendo assim usar esses dados na aplicação, passando-as pelo controller.
+
+## Adicionando registro ao banco de dados:
+* No Laravel é comum ter uma action específica para o post chamada de **store**. Ela é implementada no controller.
+* Lá vamos criar o objeto e compor ele com base nos dados enviados pelo POST, tal objeto é do nosso model feito para a tabela da qual queremos colocar uma instância. Para isso usamos um objeto do tipo Request, onde armaazenará os dados do POST.
+* Com o objeto formado utilizamos o método **save** para persistir os dados na tabela.

@@ -18,6 +18,8 @@ Route::get('/', [EventController::class, 'index']);
 
 Route::get('/events/create', [EventController::class, 'create_Event']);
 
+Route::post('/events', [EventController::class, 'store']);
+
 Route::get('/contatos', [EventController::class, 'contatos']);
 
 Route::get('/produtos/{id?}', [EventController::class, 'products']);

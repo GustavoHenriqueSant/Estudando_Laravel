@@ -43,12 +43,11 @@
                 </ul>
             </div>
         </nav>
+
         @yield('content')
 
         <footer>
             <p> Gustavo Events &copy; 2021</p>
         </footer>
-
-        <p>Olokinho meu</p>
     </body>
 </html>
